@@ -1,0 +1,24 @@
+[local]MDR-GGSAE01> show subscribers ip-address 100.98.90.144 (Private IP) ---> This will give you the mobile number using the connection.
+
+[local]CH-GGSAE01# show subscribers full imsi 530058721106647 | grep -i bytes
+
+[local]CH-GGSAE01> show subscribers apn apn.fusion.net.nz
+
+[local]MDR-GGSAE01> monitor subscriber imsi 530052192381242  =====> To capture live trace on GGSAE
+
+GGSAE : ++++ a x y 19 26 22 23
+
+press "+" until verbosity is 5 then enable 19 User L3 PDU Decodes, 22) L2TPMGR, 23) L2TP Data, Y) Multi- Call Trace (coz call can be setup on multiple servers)
+
+To check Data Plane (Traffic) enable Option (26) GTPU
+
+Enable 22 and 23 you see the control plane
+Enable 26 you have user plane
+
+[local]MDR-GGSAE01> clear session subscriber imsi 530052192381242
+
+[local]MDR-GGSAE01# show subscribers full imsi 530058721180952 | grep -i connect
+
+[local]MDR-GGSAE01# show subscribers summary apn nz.intellihub   =====> To get the summary of devices connected on the PAPN.
+
+[local]MDR-GGSAE01> show configuration apn amsco.co.nz
